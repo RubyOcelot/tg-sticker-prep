@@ -6,6 +6,8 @@ import os
 input_path=sys.argv[1]+"/input/"
 output_path=sys.argv[1]+"/output/"
 infiles=os.listdir(input_path)
+if not os.path.exists(output_path):
+    os.makedirs(output_path)
 for infile in infiles:
     try:
         with Image.open(input_path+infile) as im:
@@ -17,7 +19,7 @@ for infile in infiles:
                 outfile=f+'.png'
             elif im.format!='PNG':
                 continue
-            
+
             (width,height)=im.size
             if width>height:
                 new_size=(512,int(512*height/width))
