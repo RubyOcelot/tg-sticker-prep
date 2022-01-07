@@ -3,7 +3,7 @@ from PIL import Image
 
 for infile in sys.argv[1:]:
     f, e = os.path.splitext(infile)
-    outfile = f + ".png"
+    outfile = f + "_icon.png"
     try:
         with Image.open(infile) as im:
             im=im.resize((100,100))
